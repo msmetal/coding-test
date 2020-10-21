@@ -1,4 +1,17 @@
+ext {
+    springBootVersion = "1.5.19.RELEASE"
+}
+
 allprojects {
     apply plugin: "java"
     apply plugin: "idea"
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+}
+
+repositories {
+    jcenter()
 }
