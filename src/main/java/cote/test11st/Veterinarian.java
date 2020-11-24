@@ -1,4 +1,4 @@
-package cote;
+package cote.test11st;
 
 public class Veterinarian {
     private PetQueue<String> first;
