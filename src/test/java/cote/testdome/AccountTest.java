@@ -1,9 +1,8 @@
 package cote.testdome;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /*
 Using JUnit 4's Assert class, write tests for the Account class that cover the following cases:
@@ -21,7 +20,7 @@ public class AccountTest {
     public void accountCannotHaveNegativeOverdraftLimit() {
         Account account = new Account(-20);
 
-        Assert.assertEquals(0d, account.getOverdraftLimit(), epsilon);
+        assertThat(account.getOverdraftLimit()).isEqualTo(0);
     }
 
     @Test
@@ -42,7 +41,8 @@ public class AccountTest {
         Account account = new Account(0);
         assertThat(account.deposit(100)).isTrue();
         assertThat(account.withdraw(100)).isTrue();
-        Assert.assertEquals(0d, account.getBalance(), epsilon);
+
+        assertThat(account.getBalance()).isEqualTo(0);
     }
 
     @Test

@@ -1,12 +1,11 @@
 package cote.test11st;
 
-
-import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 public class MaxSumTest {
 

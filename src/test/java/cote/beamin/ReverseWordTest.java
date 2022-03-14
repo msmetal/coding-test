@@ -1,8 +1,9 @@
 package cote.beamin;
 
-import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 public class ReverseWordTest {
 
@@ -20,13 +21,15 @@ public class ReverseWordTest {
         assertThat(reverseWord.reversWord("12345!@#$")).isEqualTo("12345!@#$");
     }
 
-    @Test(expected = Exception.class)
-    public void testReversWordException() throws Exception {
+    @Test
+    public void testReversWordException() {
         ReverseWord reverseWord = new ReverseWord();
         StringBuilder exceedString = new StringBuilder();
         for (int i = 0; i < 1001; i++) {
             exceedString.append("1");
         }
-        reverseWord.reversWord(exceedString.toString());
+        assertThrows(Exception.class, () ->
+            reverseWord.reversWord(exceedString.toString())
+        );
     }
 }

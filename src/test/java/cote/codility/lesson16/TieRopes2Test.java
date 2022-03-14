@@ -1,8 +1,8 @@
 package cote.codility.lesson16;
 
-import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 public class TieRopes2Test {
 

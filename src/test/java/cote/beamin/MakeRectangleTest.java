@@ -1,8 +1,9 @@
 package cote.beamin;
 
-import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 public class MakeRectangleTest {
 
@@ -24,19 +25,21 @@ public class MakeRectangleTest {
         assertThat(result[1]).isEqualTo(1);
     }
 
-    @Test(expected = Exception.class)
-    public void testInvalidInputData1() throws Exception {
+    @Test
+    public void testInvalidInputData1() {
         int[][] v = {{1, 4}, {3, 4}, {2, 10}};
         MakeRectangle rectangle = new MakeRectangle();
-        rectangle.getLastPoint(v);
+        assertThrows(Exception.class, () ->
+            rectangle.getLastPoint(v)
+        );
     }
 
-    @Test(expected = Exception.class)
-    public void testInvalidInputData2() throws Exception {
+    @Test
+    public void testInvalidInputData2() {
         int[][] v = {{1, 10}, {3, 4}, {3, 4}};
         MakeRectangle rectangle = new MakeRectangle();
-        rectangle.getLastPoint(v);
+        assertThrows(Exception.class, () ->
+            rectangle.getLastPoint(v)
+        );
     }
-
-
 }

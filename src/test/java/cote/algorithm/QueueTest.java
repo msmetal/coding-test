@@ -1,11 +1,11 @@
 package cote.algorithm;
 
-import org.junit.Test;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 public class QueueTest {
 

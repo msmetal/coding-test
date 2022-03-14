@@ -1,19 +1,35 @@
-ext {
-    springBootVersion = "1.5.19.RELEASE"
+plugins {
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
-allprojects {
-    apply plugin: "java"
-    apply plugin: "idea"
-}
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
-dependencies {
-    compile("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
-    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
-    compile 'org.projectlombok:lombok:1.18.4'
-    annotationProcessor('org.projectlombok:lombok:1.18.4')
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'com.google.guava:guava:29.0-jre'
+
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
 }
